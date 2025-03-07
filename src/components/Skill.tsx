@@ -27,8 +27,8 @@ export default function Skill() {
           whileInView={{ opacity: 1 }}
           viewport={{ once: true }}
         >
-          <h2 className="text-3xl font-bold text-center mb-12">
-            Technical <span className="text-blue-600">Skills</span>
+          <h2 className="text-3xl font-bold text-center mb-12 text-gray-900">
+            Technical <span className="text-blue-700">Skills</span>
           </h2>
 
           <div className="grid md:grid-cols-3 gap-8">
