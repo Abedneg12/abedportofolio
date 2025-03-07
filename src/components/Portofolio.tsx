@@ -37,7 +37,7 @@ export default function Portofolio() {
               initial={{ y: 50, opacity: 0 }}
               whileInView={{ y: 0, opacity: 1 }}
               viewport={{ once: true }}
-              className="bg-white dark:bg-neutral-800 rounded-xl shadow-lg overflow-hidden hover:shadow-xl transition-shadow cursor-pointer"
+              className="bg-white rounded-xl shadow-lg overflow-hidden hover:shadow-xl transition-shadow cursor-pointer"
               onClick={() => setSelectedProject(index)}
             >
               <div className="relative h-48">
@@ -50,7 +50,7 @@ export default function Portofolio() {
                 />
               </div>
               
-              <div className="p-6 text-gray-900 dark:text-gray-100">
+              <div className="p-6">
                 <h3 className="text-xl font-bold mb-2">{project.title}</h3>
                 <div className="flex flex-wrap gap-2 mb-4">
                   {project.technologies.map((tech, i) => (
