@@ -101,7 +101,7 @@ export default function Contact() {
           {/* Contact Form */}
           <form onSubmit={handleSubmit(onSubmit)} className="space-y-6">
             <div>
-              <label className="block text-sm font-medium mb-2 text-black" htmlFor="name">
+              <label className="block text-sm font-medium mb-2" htmlFor="name">
                 Nama Lengkap
               </label>
               <input
@@ -116,7 +116,7 @@ export default function Contact() {
             </div>
 
             <div>
-              <label className="block text-sm font-medium mb-2 text-black" htmlFor="email">
+              <label className="block text-sm font-medium mb-2" htmlFor="email">
                 Email
               </label>
               <input
@@ -138,7 +138,7 @@ export default function Contact() {
             </div>
 
             <div>
-              <label className="block text-sm font-medium mb-2 text-black" htmlFor="message">
+              <label className="block text-sm font-medium mb-2" htmlFor="message">
                 Pesan
               </label>
               <textarea
