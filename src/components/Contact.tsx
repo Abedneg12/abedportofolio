@@ -46,7 +46,7 @@ export default function Contact() {
         >
           {/* Contact Info */}
           <div className="space-y-6">
-            <h2 className="text-3xl font-bold text-gray-900">
+            <h2 className="text-3xl font-bold">
               Mari <span className="text-blue-700">Bekerja Sama</span>
             </h2>
             
