@@ -70,7 +70,7 @@ export default function Navbar() {
   }, []);
 
   return (
-    <nav className="fixed w-full bg-white/95 backdrop-blur-md z-50 shadow-sm border-b border-gray-100">
+    <nav className="fixed w-full bg-gray-300 backdrop-blur-md z-50 shadow-sm border-b border-gray-100">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex items-center justify-between h-20">
           {/* Logo */}
@@ -96,7 +96,7 @@ export default function Navbar() {
                 className={`relative px-3 py-2 text-sm font-medium transition-colors ${
                   activeSection === item.href.slice(1)
                     ? 'text-primary'
-                    : 'text-gray-500 hover:text-primary'
+                    : 'text-black hover:text-primary'
                 }`}
               >
                 {item.name}

@@ -7,9 +7,9 @@ import Image from 'next/image';
 
 const projects = [
   {
-    title: "E-commerce Platform for XYZ Retail",
-    technologies: ["React", "Node.js", "MongoDB", "AWS"],
-    image: "/projects/ecommerce.jpg",
+    title: "Website Portofolio",
+    technologies: ["Next.Js", "Typescript", "React-Hook", "Tailwind CSS"],
+    image: "/test.png",
     situation: "XYZ Retail, perusahaan retail ternama, ingin memperluas bisnis ke e-commerce untuk menjangkau audiens lebih luas dan merampingkan proses penjualan.",
     task: "Bertanggung jawab membangun platform full-stack yang terintegrasi dengan sistem inventory dan pembayaran klien.",
     action: "Mengembangkan UI responsif dengan React, REST API dengan Node.js, integrasi AWS untuk optimasi performa, dan CI/CD pipeline.",
@@ -27,7 +27,7 @@ export default function Portofolio() {
     <section id="portfolio" className="py-20 bg-gray-50">
       <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
         <h2 className="text-3xl font-bold text-center mb-12">
-          Portofolio <span className="text-blue-700">Proyek</span>
+          <span className='text-black'>Portofolio</span> <span className="text-blue-700">Proyek</span>
         </h2>
 
         <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
@@ -51,7 +51,7 @@ export default function Portofolio() {
               </div>
               
               <div className="p-6">
-                <h3 className="text-xl font-bold mb-2">{project.title}</h3>
+                <h3 className="text-xl font-bold mb-2 text-black">{project.title}</h3>
                 <div className="flex flex-wrap gap-2 mb-4">
                   {project.technologies.map((tech, i) => (
                     <span 
@@ -77,7 +77,7 @@ export default function Portofolio() {
             >
               <div className="p-6 space-y-6">
                 <div className="flex justify-between items-start">
-                  <h3 className="text-2xl font-bold">
+                  <h3 className="text-2xl font-bold text-black">
                     {projects[selectedProject].title}
                   </h3>
                   <button 

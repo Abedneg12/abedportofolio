@@ -36,7 +36,7 @@ export default function Contact() {
   };
 
   return (
-    <section id="contact" className="py-20 bg-gradient-to-br from-gray-50 to-blue-50">
+    <section id="contact" className="py-20" /*bg-gradient-to-br from-gray-50 to-blue-50*/>
       <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
         <motion.div
           initial={{ opacity: 0 }}
@@ -47,10 +47,10 @@ export default function Contact() {
           {/* Contact Info */}
           <div className="space-y-6">
             <h2 className="text-3xl font-bold">
-              Mari <span className="text-blue-700">Bekerja Sama</span>
+              <span className='text-white'>Mari</span> <span className="text-blue-500">Bekerja Sama</span>
             </h2>
             
-            <p className="text-gray-600">
+            <p className="text-white">
               Tertarik untuk berkolaborasi atau memiliki pertanyaan? 
               Silakan hubungi saya melalui form atau kontak dibawah ini.
             </p>
@@ -59,8 +59,8 @@ export default function Contact() {
               <div className="flex items-center gap-4">
                 <FiMail className="w-6 h-6 text-blue-600" />
                 <div>
-                  <p className="font-medium text-gray-500">Email</p>
-                  <a href="mailto:contoh@email.com" className="text-gray-600 hover:text-blue-600">
+                  <p className="font-medium text-white">Email</p>
+                  <a href="mailto:contoh@email.com" className="text-gray-400 hover:text-white">
                     yosua12.abednenego@gmail.com
                   </a>
                 </div>
@@ -69,12 +69,12 @@ export default function Contact() {
               <div className="flex items-center gap-4">
                 <FiGithub className="w-6 h-6 text-blue-600" />
                 <div>
-                  <p className="font-medium text-gray-500">GitHub</p>
+                  <p className="font-medium text-white">GitHub</p>
                   <a 
                     href="https://github.com/username" 
                     target="_blank"
                     rel="noopener"
-                    className="text-gray-600 hover:text-blue-600"
+                    className="text-gray-400 hover:text-white"
                   >
                     github.com/Abedneg21
                   </a>
@@ -84,12 +84,12 @@ export default function Contact() {
               <div className="flex items-center gap-4">
                 <FiLinkedin className="w-6 h-6 text-blue-600" />
                 <div>
-                  <p className="font-medium text-gray-500">LinkedIn</p>
+                  <p className="font-medium text-white">LinkedIn</p>
                   <a
                     href="https://linkedin.com/in/username"
                     target="_blank"
                     rel="noopener"
-                    className="text-gray-600 hover:text-blue-600"
+                    className="text-gray-400 hover:text-white"
                   >
                     linkedin.com/in/Yosua Abednego
                   </a>

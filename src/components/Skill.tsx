@@ -20,7 +20,7 @@ const skillsData = {
 
 export default function Skill() {
   return (
-    <section id="skills" className="py-20 bg-gradient-to-br from-gray-50 to-blue-50">
+    <section id="skills" className="py-20 bg-gradient-to-br">
       <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
         <motion.div
           initial={{ opacity: 0 }}
@@ -28,7 +28,7 @@ export default function Skill() {
           viewport={{ once: true }}
         >
           <h2 className="text-3xl font-bold text-center mb-12">
-            Technical <span className="text-blue-700">Skills</span>
+            <span className='text-white'>Technical</span> <span className="text-blue-500">Skills</span>
           </h2>
 
           <div className="grid md:grid-cols-3 gap-8">
