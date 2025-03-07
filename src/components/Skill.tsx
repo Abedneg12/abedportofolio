@@ -27,7 +27,7 @@ export default function Skill() {
           whileInView={{ opacity: 1 }}
           viewport={{ once: true }}
         >
-          <h2 className="text-3xl font-bold text-center mb-12 text-gray-900">
+          <h2 className="text-3xl font-bold text-center mb-12">
             Technical <span className="text-blue-700">Skills</span>
           </h2>
 
