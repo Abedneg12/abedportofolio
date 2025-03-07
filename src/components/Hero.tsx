@@ -8,7 +8,7 @@ export default function Hero() {
   return (
     <section 
       id="home" 
-      className="min-h-screen flex items-center pt-16 bg-gradient-to-br from-indigo-100 via-purple-100 to-pink-100"
+      className="min-h-screen flex items-center pt-25 bg-gradient-to-br from-indigo-100 via-purple-100 to-pink-100"
     >
       <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="grid lg:grid-cols-2 gap-12 items-center">
