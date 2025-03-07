@@ -59,7 +59,7 @@ export default function Contact() {
               <div className="flex items-center gap-4">
                 <FiMail className="w-6 h-6 text-blue-600" />
                 <div>
-                  <p className="font-medium">Email</p>
+                  <p className="font-medium text-gray-500">Email</p>
                   <a href="mailto:contoh@email.com" className="text-gray-600 hover:text-blue-600">
                     contoh@email.com
                   </a>
@@ -69,7 +69,7 @@ export default function Contact() {
               <div className="flex items-center gap-4">
                 <FiGithub className="w-6 h-6 text-blue-600" />
                 <div>
-                  <p className="font-medium">GitHub</p>
+                  <p className="font-medium text-gray-500">GitHub</p>
                   <a 
                     href="https://github.com/username" 
                     target="_blank"
@@ -84,7 +84,7 @@ export default function Contact() {
               <div className="flex items-center gap-4">
                 <FiLinkedin className="w-6 h-6 text-blue-600" />
                 <div>
-                  <p className="font-medium">LinkedIn</p>
+                  <p className="font-medium text-gray-500">LinkedIn</p>
                   <a
                     href="https://linkedin.com/in/username"
                     target="_blank"
