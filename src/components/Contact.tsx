@@ -61,7 +61,7 @@ export default function Contact() {
                 <div>
                   <p className="font-medium text-gray-500">Email</p>
                   <a href="mailto:contoh@email.com" className="text-gray-600 hover:text-blue-600">
-                    contoh@email.com
+                    yosua12.abednenego@gmail.com
                   </a>
                 </div>
               </div>
@@ -76,7 +76,7 @@ export default function Contact() {
                     rel="noopener"
                     className="text-gray-600 hover:text-blue-600"
                   >
-                    github.com/username
+                    github.com/Abedneg21
                   </a>
                 </div>
               </div>
@@ -91,7 +91,7 @@ export default function Contact() {
                     rel="noopener"
                     className="text-gray-600 hover:text-blue-600"
                   >
-                    linkedin.com/in/username
+                    linkedin.com/in/Yosua Abednego
                   </a>
                 </div>
               </div>
