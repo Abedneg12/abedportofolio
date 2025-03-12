@@ -1,0 +1,10 @@
+{
+  "contacts": [
+    {
+      "name": "John Doe",
+      "email": "john@example.com",
+      "message": "Pesan percobaan",
+      "createdAt": "2024-03-10T08:30:00.000Z"
+    }
+  ]
+}

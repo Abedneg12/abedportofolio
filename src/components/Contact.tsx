@@ -12,6 +12,13 @@ type FormData = {
   message: string;
 };
 
+// Konfigurasi JSONBin.io
+const JSONBIN_ENDPOINT = `https://api.jsonbin.io/v3/b/${process.env.NEXT_PUBLIC_JSONBIN_BIN_ID}`;
+const JSONBIN_HEADERS = {
+  'Content-Type': 'application/json',
+  'X-Access-Key': process.env.NEXT_PUBLIC_JSONBIN_ACCESS_KEY!,
+};
+
 export default function Contact() {
   const {
     register,
@@ -21,33 +28,49 @@ export default function Contact() {
   } = useForm<FormData>();
 
   const onSubmit = async (data: FormData) => {
-  try {
-    // Gunakan URL yang benar
-    const checkResponse = await axios.get(
-      `http://localhost:7001/contacts?email=${data.email}`
-    );
+    try {
+      // 1. Ambil data yang sudah ada
+      const { data: existingData } = await axios.get(JSONBIN_ENDPOINT, {
+        headers: JSONBIN_HEADERS
+      });
+      
+      const contacts = existingData.record?.contacts || [];
 
-    if (checkResponse.data.length > 0) {
-      throw new Error('Anda sudah mengirim pesan menggunakan email ini');
-    }
+      // 2. Validasi duplikat email (case insensitive)
+      const normalizedEmail = data.email.toLowerCase();
+      if (contacts.some((contact: FormData) => 
+        contact.email.toLowerCase() === normalizedEmail
+      )) {
+        throw new Error('Anda sudah mengirim pesan menggunakan email ini');
+      }
 
-    // Tambahkan error handling untuk axios
-    await axios.post('http://localhost:7001/contacts', {
-      ...data,
-      createdAt: new Date().toISOString()
-    }).then(() => {
-      alert('Pesan terkirim!');
+      // 3. Tambahkan data baru
+      const newContact = {
+        ...data,
+        createdAt: new Date().toISOString()
+      };
+
+      // 4. Update data di JSONBin.io
+      const { status } = await axios.put(
+        JSONBIN_ENDPOINT,
+        { contacts: [...contacts, newContact] },
+        { headers: JSONBIN_HEADERS }
+      );
+
+      if (status !== 200) throw new Error('Gagal menyimpan data');
+      
+      alert('Pesan terkirim! 🎉');
       reset();
-    }).catch((error) => {
-      throw new Error(`Gagal mengirim: ${error.message}`);
-    });
+    } catch (error) {
+      const errorMessage = error instanceof Error 
+        ? error.message 
+        : 'Terjadi kesalahan. Silakan coba lagi.';
+      alert(`Gagal mengirim pesan: ${errorMessage}`);
+    }
+  };
 
-  } catch (error: any) {
-    alert(error.message || 'Terjadi kesalahan. Silakan coba lagi.');
-  }
-};
   return (
-    <section id="contact" className="py-20" /*bg-gradient-to-br from-gray-50 to-blue-50*/>
+    <section id="contact" className="py-20 bg-gradient-to-br from-gray-900 to-blue-900">
       <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
         <motion.div
           initial={{ opacity: 0 }}
@@ -57,101 +80,77 @@ export default function Contact() {
         >
           {/* Contact Info */}
           <div className="space-y-6">
-            <h2 className="text-3xl font-bold">
-              <span className='text-white'>Mari</span> <span className="text-blue-500">Bekerja Sama</span>
+            <h2 className="text-3xl font-bold text-transparent bg-clip-text bg-gradient-to-r from-blue-400 to-purple-600">
+              Mari Bekerja Sama
             </h2>
             
-            <p className="text-white">
+            <p className="text-gray-300 text-lg">
               Tertarik untuk berkolaborasi atau memiliki pertanyaan? 
-              Silakan hubungi saya melalui form atau kontak dibawah ini.
+              Silakan hubungi saya melalui form atau kontak di bawah ini.
             </p>
 
             <div className="space-y-4">
-              <div className="flex items-center gap-4">
-                <FiMail className="w-6 h-6 text-blue-600" />
-                <div>
-                  <p className="font-medium text-white">Email</p>
-                  <a href="mailto:contoh@email.com" className="text-gray-400 hover:text-white">
-                    blablabla@gmail.com
-                  </a>
-                </div>
-              </div>
+              <ContactInfoItem
+                icon={<FiMail className="w-6 h-6 text-blue-400" />}
+                label="Email"
+                value="bhablabia@gmail.com"
+                href="mailto:bhablabia@gmail.com"
+              />
 
-              <div className="flex items-center gap-4">
-                <FiGithub className="w-6 h-6 text-blue-600" />
-                <div>
-                  <p className="font-medium text-white">GitHub</p>
-                  <a 
-                    href="https://github.com/username" 
-                    target="_blank"
-                    rel="noopener"
-                    className="text-gray-400 hover:text-white"
-                  >
-                    github.com/Abedneg21
-                  </a>
-                </div>
-              </div>
+              <ContactInfoItem
+                icon={<FiGithub className="w-6 h-6 text-blue-400" />}
+                label="GitHub"
+                value="github.com/Abedneg21"
+                href="https://github.com/Abedneg21"
+              />
 
-              <div className="flex items-center gap-4">
-                <FiLinkedin className="w-6 h-6 text-blue-600" />
-                <div>
-                  <p className="font-medium text-white">LinkedIn</p>
-                  <a
-                    href="https://linkedin.com/in/username"
-                    target="_blank"
-                    rel="noopener"
-                    className="text-gray-400 hover:text-white"
-                  >
-                    linkedin.com/in/
-                  </a>
-                </div>
-              </div>
+              <ContactInfoItem
+                icon={<FiLinkedin className="w-6 h-6 text-blue-400" />}
+                label="LinkedIn"
+                value="linkedin.com/in/yourprofile"
+                href="https://linkedin.com/in/yourprofile"
+              />
             </div>
           </div>
 
           {/* Contact Form */}
           <form onSubmit={handleSubmit(onSubmit)} className="space-y-6">
-            <div>
-              <label className="block text-sm font-medium mb-2" htmlFor="name">
-                Nama Lengkap
-              </label>
+            <FormField
+              label="Nama Lengkap"
+              id="name"
+              error={errors.name}
+            >
               <input
                 {...register('name', { required: 'Nama wajib diisi' })}
-                className={`w-full px-4 py-2 border rounded-lg ${
-                  errors.name ? 'border-red-500' : 'border-gray-300'
-                }`}
+                className={`form-input ${errors.name ? 'error' : ''}`}
+                placeholder="John Doe"
               />
-              {errors.name && (
-                <p className="text-red-500 text-sm mt-1">{errors.name.message}</p>
-              )}
-            </div>
+            </FormField>
 
-            <div>
-              <label className="block text-sm font-medium mb-2" htmlFor="email">
-                Email
-              </label>
+            <FormField
+              label="Email"
+              id="email"
+              error={errors.email}
+            >
               <input
                 type="email"
                 {...register('email', { 
                   required: 'Email wajib diisi',
                   pattern: {
                     value: /^[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,}$/i,
-                    message: 'Email tidak valid'
+                    message: 'Format email tidak valid'
                   }
                 })}
-                className={`w-full px-4 py-2 border rounded-lg ${
-                  errors.email ? 'border-red-500' : 'border-gray-300'
-                }`}
+                className={`form-input ${errors.email ? 'error' : ''}`}
+                placeholder="johndoe@example.com"
               />
-              {errors.email && (
-                <p className="text-red-500 text-sm mt-1">{errors.email.message}</p>
-              )}
-            </div>
+            </FormField>
 
-            <div>
-              <label className="block text-sm font-medium mb-2" htmlFor="message">
-                Pesan
-              </label>
+            <FormField
+              label="Pesan"
+              id="message"
+              error={errors.message}
+            >
               <textarea
                 {...register('message', { 
                   required: 'Pesan wajib diisi',
@@ -161,21 +160,27 @@ export default function Contact() {
                   }
                 })}
                 rows={5}
-                className={`w-full px-4 py-2 border rounded-lg ${
-                  errors.message ? 'border-red-500' : 'border-gray-300'
-                }`}
+                className={`form-input ${errors.message ? 'error' : ''}`}
+                placeholder="Tulis pesan Anda di sini..."
               />
-              {errors.message && (
-                <p className="text-red-500 text-sm mt-1">{errors.message.message}</p>
-              )}
-            </div>
+            </FormField>
 
             <button
               type="submit"
               disabled={isSubmitting}
-              className="w-full bg-blue-600 text-white px-6 py-3 rounded-lg hover:bg-blue-700 transition-colors disabled:bg-blue-400"
+              className="w-full bg-blue-600 text-white px-6 py-3 rounded-lg hover:bg-blue-700 transition-colors disabled:opacity-50 disabled:cursor-not-allowed"
             >
-              {isSubmitting ? 'Mengirim...' : 'Kirim Pesan'}
+              {isSubmitting ? (
+                <span className="flex items-center justify-center">
+                  <svg className="animate-spin h-5 w-5 mr-3" viewBox="0 0 24 24">
+                    <circle className="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" strokeWidth="4" fill="none"/>
+                    <path className="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z"/>
+                  </svg>
+                  Mengirim...
+                </span>
+              ) : (
+                'Kirim Pesan'
+              )}
             </button>
           </form>
         </motion.div>
@@ -183,3 +188,48 @@ export default function Contact() {
     </section>
   );
 }
+
+// Komponen Bantuan
+const ContactInfoItem = ({ icon, label, value, href }: {
+  icon: React.ReactNode;
+  label: string;
+  value: string;
+  href?: string;
+}) => (
+  <div className="flex items-center gap-4 hover:bg-gray-800 p-3 rounded-lg transition-colors">
+    {icon}
+    <div>
+      <p className="font-medium text-gray-300">{label}</p>
+      {href ? (
+        <a
+          href={href}
+          target="_blank"
+          rel="noopener noreferrer"
+          className="text-gray-400 hover:text-white transition-colors"
+        >
+          {value}
+        </a>
+      ) : (
+        <p className="text-gray-400">{value}</p>
+      )}
+    </div>
+  </div>
+);
+
+// Komponen Form Field
+const FormField = ({ label, id, error, children }: {
+  label: string;
+  id: string;
+  error?: any;
+  children: React.ReactNode;
+}) => (
+  <div>
+    <label className="block text-sm font-medium mb-2 text-gray-300" htmlFor={id}>
+      {label}
+    </label>
+    {children}
+    {error && (
+      <p className="text-red-400 text-sm mt-1">{error.message}</p>
+    )}
+  </div>
+);
