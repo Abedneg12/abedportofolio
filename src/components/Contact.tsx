@@ -15,26 +15,35 @@ export default function Contact() {
   const {
     register,
     handleSubmit,
+    reset,
     formState: { errors, isSubmitting },
   } = useForm<FormData>();
 
   const onSubmit = async (data: FormData) => {
-    try {
-      const response = await fetch('/api/contact', {
-        method: 'POST',
-        headers: {
-          'Content-Type': 'application/json',
-        },
-        body: JSON.stringify(data),
-      });
+  try {
+    const response = await fetch('/api/contact', {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json',
+      },
+      body: JSON.stringify(data),
+    })
 
-      if (!response.ok) throw new Error('Gagal mengirim pesan');
-      alert('Pesan terkirim!');
-    } catch (error) {
-      alert('Terjadi kesalahan. Silakan coba lagi.');
+    if (!response.ok) {
+      throw new Error('Gagal mengirim pesan')
     }
-  };
 
+    alert('Pesan terkirim!')
+    reset()
+    
+  } catch (error) {
+    alert(
+      error instanceof Error 
+        ? error.message 
+        : 'Terjadi kesalahan. Silakan coba lagi.'
+    )
+  }
+}
   return (
     <section id="contact" className="py-20" /*bg-gradient-to-br from-gray-50 to-blue-50*/>
       <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">

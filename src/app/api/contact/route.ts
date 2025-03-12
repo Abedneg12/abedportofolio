@@ -1,34 +1,30 @@
-// app/api/contact/route.ts
 import { NextResponse } from 'next/server';
-import { Resend } from 'resend';
-
-const resend = new Resend(process.env.RESEND_API_KEY);
+import supabase from '@/lib/supbase';
 
 export async function POST(request: Request) {
+  const { name, email, message } = await request.json()
+
   try {
-    const { name, email, message } = await request.json();
-    
-    const { data, error } = await resend.emails.send({
-      from: 'Portfolio <no-reply@yourdomain.com>',
-      to: 'your-email@example.com',
-      subject: 'Pesan Baru dari Portfolio',
-      html: `
-        <h3>Pesan dari ${name}</h3>
-        <p>Email: ${email}</p>
-        <p>Pesan:</p>
-        <p>${message}</p>
-      `
-    });
+    const { data, error } = await supabase
+      .from('contacts')
+      .insert([{ name, email, message }])
+      .select()
 
     if (error) {
-      return NextResponse.json({ error }, { status: 500 });
+      console.error('Supabase error:', error)
+      return NextResponse.json(
+        { error: 'Gagal menyimpan data' },
+        { status: 500 }
+      )
     }
 
-    return NextResponse.json(data);
+    return NextResponse.json({ success: true, data })
+
   } catch (error) {
+    console.error('Server error:', error)
     return NextResponse.json(
       { error: 'Internal Server Error' },
       { status: 500 }
-    );
+    )
   }
 }
