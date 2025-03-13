@@ -3,6 +3,7 @@
 
 import { motion } from 'framer-motion';
 import Image from 'next/image';
+import Link from 'next/link';
 
 export default function Hero() {
   return (
@@ -29,19 +30,22 @@ export default function Hero() {
             </p>
 
             <div className="flex flex-col sm:flex-row gap-4 justify-center lg:justify-start">
+            <a href="#portfolio">
               <motion.button
                 whileHover={{ scale: 1.05 }}
                 className="bg-blue-600 text-white px-6 py-3 rounded-lg shadow-lg hover:bg-blue-700 transition-all"
               >
                 Lihat Projek
               </motion.button>
-              
+            </a>
+            <a href="#contact">
               <motion.button
                 whileHover={{ scale: 1.05 }}
                 className="border-2 border-blue-600 text-white px-6 py-3 rounded-lg hover:bg-amber-200 transition-colors"
               >
                 Kontak Saya
               </motion.button>
+              </a>
             </div>
           </motion.div>
 

@@ -10,12 +10,12 @@ const projects = [
     title: "Website Portofolio",
     technologies: ["Next.Js", "Typescript", "React-Hook", "Tailwind CSS"],
     image: "/test.png",
-    situation: "XYZ Retail, perusahaan retail ternama, ingin memperluas bisnis ke e-commerce untuk menjangkau audiens lebih luas dan merampingkan proses penjualan.",
-    task: "Bertanggung jawab membangun platform full-stack yang terintegrasi dengan sistem inventory dan pembayaran klien.",
-    action: "Mengembangkan UI responsif dengan React, REST API dengan Node.js, integrasi AWS untuk optimasi performa, dan CI/CD pipeline.",
-    result: "Peningkatan 35% penjualan online dalam 3 bulan pertama, pengurangan 50% waktu manajemen inventory.",
-    demo: "#",
-    code: "#"
+    situation: "Dalam mengikuti bootcamp fullstack developer, saya harus memiliki sebuah website portofolio saya untuk memulai kisah ini.",
+    task: "Membuat website portofolio yang menggunakan Next.Js dan Typescript.",
+    action: "Mengembangkan Website Portofolio yang memiliki desain menarik dan Eye-Catchy.",
+    result: "Menghasilkan website yang colorful dan tentunya membekas dipikiran viewer.",
+    demo: "https://abedportofolio.vercel.app/",
+    code: "https://github.com/Abedneg12/abedportofolio.git"
   },
   // Tambahkan proyek lainnya dengan format yang sama
 ];
