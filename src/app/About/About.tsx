@@ -8,9 +8,7 @@ const skills = [
   'TypeScript',
   'React.js',
   'Next.js',
-  'Node.js',
   'Tailwind CSS',
-  'MongoDB',
   'Git & GitHub'
 ];
 

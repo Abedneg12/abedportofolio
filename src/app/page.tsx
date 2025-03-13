@@ -1,9 +1,9 @@
 // app/page.tsx
-import About from '@/components/About';
-import Hero from '@/components/Hero';
-import Portfolio from '@/components/Portofolio';
-import Skill from '@/components/Skill';
-import Contact from '@/components/Contact';
+import About from '@/app/About/About';
+import Hero from '@/app/Hero/Hero';
+import Portfolio from '@/app/Portofolio/Portofolio';
+import Skill from '@/app/Skill/Skill';
+import Contact from '@/app/Contact/Contact';
 
 
 export default function Home() {
