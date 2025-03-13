@@ -5,16 +5,13 @@ import { motion } from 'framer-motion';
 
 const skillsData = {
   frontend: [
-    'HTML5', 'CSS3', 'JavaScript', 
-    'React.js', 'Next.js', 'Tailwind CSS'
+    'JavaScript', 'React.js', 'Next.js', 'Tailwind CSS'
   ],
   backend: [
-    'Node.js', 'Express.js', 'MongoDB',
-    'PostgreSQL', 'REST API', 'GraphQL'
+    'Node.js','PostgreSQL', 'REST API'
   ],
   tools: [
-    'Git', 'Docker', 'AWS',
-    'Jest', 'Postman', 'Figma'
+    'Git', 'Docker', 'Postman', 'Figma'
   ]
 };
 

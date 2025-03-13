@@ -72,7 +72,7 @@ export default function Contact() {
                 <div>
                   <p className="font-medium text-white">Email</p>
                   <a href="mailto:contoh@email.com" className="text-gray-400 hover:text-white">
-                    blablabla@gmail.com
+                    yosua12.abednego@gmail.com
                   </a>
                 </div>
               </div>
@@ -102,7 +102,7 @@ export default function Contact() {
                     rel="noopener"
                     className="text-gray-400 hover:text-white"
                   >
-                    linkedin.com/in/
+                    linkedin.com/yosua-abednego/
                   </a>
                 </div>
               </div>
