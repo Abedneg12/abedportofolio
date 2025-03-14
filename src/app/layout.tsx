@@ -4,6 +4,7 @@ import { Inter } from "next/font/google";
 import "./globals.css";
 import Navbar from "@/components/Navbar";
 import Iridescence from "@/components/Iridescence";
+import ScrollVelocity from "@/components/Sv";
 
 const inter = Inter({ subsets: ["latin"] });
 
@@ -23,11 +24,13 @@ export default function RootLayout({
         <Iridescence
           color={[0.3, 0.2, 0.5]}    // Warna default (R=1,G=1,B=1) => putih
           speed={1.0}          // Kecepatan animasi
-          amplitude={0.1}      // Besar efek "goyang" mouse
+          amplitude={0.1}        // Besar efek "goyang" mouse
           mouseReact={true}
           />    
         <Navbar/>
         {children}
+        <ScrollVelocity texts={['Testimonial', '(windah: Bekerjasama dengan dia tidak mengecewakan) (Andi: Hasilnya sangat bagus, saya sangat merekomendasikan tempat ini) ']} 
+        velocity={150} className="custom-scroll-text"/>
       </body>
     </html>
   );
