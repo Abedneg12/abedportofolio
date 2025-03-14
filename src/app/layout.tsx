@@ -29,7 +29,7 @@ export default function RootLayout({
           />    
         <Navbar/>
         {children}
-        <ScrollVelocity texts={['Testimonial Testimonial', '(Windah: Bekerjasama dengan dia tidak mengecewakan) (Andi: Hasilnya sangat bagus, saya sangat merekomendasikan jasa ini), Anonymous: Recommended ']} 
+        <ScrollVelocity texts={['Testimonial Testimonial', ' (Windah: Bekerjasama dengan dia tidak mengecewakan), (Andi: Hasilnya sangat bagus, saya sangat merekomendasikan jasa ini), (Anonymous: Recommended) ']} 
         velocity={150} className="custom-scroll-text"/>
       </body>
     </html>
