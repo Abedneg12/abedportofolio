@@ -3,7 +3,7 @@
 
 import { motion } from 'framer-motion';
 import Image from 'next/image';
-import Link from 'next/link';
+
 
 export default function Hero() {
   return (
@@ -19,7 +19,7 @@ export default function Hero() {
             className="space-y-6 text-center lg:text-left"
           >
             <h1 className="text-4xl md:text-5xl font-bold leading-tight text-white">
-              Abednego<br />
+              Abednego <br />
               <span className="text-transparent bg-clip-text bg-gradient-to-r from-white to-yellow-300">
                 Full-Stack Developer
               </span>
