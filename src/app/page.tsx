@@ -3,6 +3,8 @@ import AboutPage from './about/page';
 import SkillPage from './skill/page';
 import PortofolioPage from './portofolio/page';
 import ContactPage from './contact/page';
+import Testimoni from './testimonial/page';
+
 
 
 export default function Home() {
@@ -12,6 +14,7 @@ export default function Home() {
       <AboutPage />
       <SkillPage />
       <PortofolioPage />
+      <Testimoni />
       <ContactPage />
     </div>
   );
