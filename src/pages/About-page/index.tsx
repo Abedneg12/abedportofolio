@@ -33,7 +33,7 @@ const education: EducationItem[] = [
     period: '2019-2024'
   },
   {
-    institution: 'Bootcamp Web Development',
+    institution: 'Bootcamp Web Development (Ongoing)',
     degree: 'Full-Stack Developer',
     period: '2024'
   },
@@ -132,7 +132,7 @@ export default function About() {
                   </svg>
                 </div>
                 <div>
-                  <h4 className="font-medium text-gray-800">Kode Berkualitas</h4>
+                  <h4 className="font-medium text-gray-800">Hasil Berkualitas</h4>
                   <p className="text-gray-600 text-sm">Clean code & best practices</p>
                 </div>
               </div>
