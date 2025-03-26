@@ -26,7 +26,19 @@ const projects = [
     result: "Menghasilkan PRD produk digital, Dokumen pendukung (syarat dan ketentuan untuk kemitraan), dan juga Wireframe UI/UX aplikasi rekomitra droppoint",
     demo: "https://www.figma.com/design/bL6l4G8r8TrCfHB7VwIbR6/REKOMITRA-DROPPOINT?node-id=0-1&t=70RVUGPuCwb7doFU-1",
     code: "https://drive.google.com/drive/folders/1P8_Wmeuyd_UKPD-88tzrchEFgN-AeJRi?usp=sharing"
-  } // Tambahkan proyek lainnya dengan format yang sama
+  },
+  {
+    title: "Aftermovie Infinite 2019",
+    technologies: ["Adobe Premiere Pro", "Adobe AFter Effect"],
+    image: "/infinite.png",
+    situation: "Saya mengikuti program kepanitiaan acara HMPSTI yaitu INFINITE, Sebuah acara pergantian kepala Himpunan Teknik Industri yang disertai acara lainnya",
+    task: "Melakukan editing video untuk aftermovie acara",
+    action: "Melakukan take recap video selama acara, editing footage serta berdiskusi untuk konsep video yang akan dibuat",
+    result: "Menghasilkan video aftermovie yang berkonsep Retro dan sangat memorable",
+    demo: "https://www.youtube.com/watch?v=U3CqQsRNP9g",
+    code: "https://drive.google.com/drive/folders/1P8_Wmeuyd_UKPD-88tzrchEFgN-AeJRi?usp=sharing"
+  }
+   // Tambahkan proyek lainnya dengan format yang sama
 ];
 
 export default function Portofolio() {
