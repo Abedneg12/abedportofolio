@@ -38,7 +38,7 @@ export default function Testi() {
           className="text-center mb-12"
         >
           <h2 className="text-3xl font-bold text-black">
-            Testimoni & Review
+            Testimoni & Review (Dummy Page)
           </h2>
           <p className="text-gray-600 mt-4">
             Apa kata klien dan rekan kerja mengenai kualitas dan dampak dari pekerjaan saya.

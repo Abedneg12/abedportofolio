@@ -15,19 +15,32 @@ const skills: string[] = [
   'React.js',
   'Next.js',
   'Tailwind CSS',
-  'Git & GitHub'
+  'Git & GitHub',
+  'Solidworks',
+  'AI Prompting (GPT & Deepseek)',
+  'Python',
+  'Data Analysis',
+  'Product Management Tools',
+  'Canva',
+  'Adobe Premiere Pro',
+  'Office Apps'
 ];
 
 const education: EducationItem[] = [
   {
     institution: 'Universitas Katolik Parahyangan',
     degree: 'Teknik Industri',
-    period: '2019-2023'
+    period: '2019-2024'
   },
   {
     institution: 'Bootcamp Web Development',
     degree: 'Full-Stack Developer',
     period: '2024'
+  },
+  {
+    institution: 'Myskill',
+    degree: 'Bootcamp Data Analysis Program',
+    period: '2023'
   }
 ];
 
@@ -47,10 +60,10 @@ export default function About() {
               Tentang <span className="text-blue-600">Saya</span>
             </h2>
             <p className="text-gray-600 leading-relaxed">
-              Saya seorang Full-Stack Developer dengan passion untuk menciptakan
-              aplikasi web yang indah dan fungsional. Dengan latar belakang di bidang
-              teknik industri dan pengalaman praktis melalui berbagai proyek, saya terus
-              mengembangkan kemampuan teknis dan desain.
+              Saya Yosua Abednego, Lulusan mahasiswa aktif Universitas Katolik Parahyangan Jurusan Teknik Industri. 
+              Memiliki ketertarikan di bidang data, Konfigurasi AI, product management dan juga Web Development. 
+              Sangat menyukai tantangan dan hal baru serta selalu berusaha berdampak bagi sesama. 
+              Selalu memotivasi diri dan berusaha menjadi lebih baik hari demi hari.
             </p>
             <div className="mt-8">
               <h3 className="text-xl font-semibold text-gray-800 mb-4">

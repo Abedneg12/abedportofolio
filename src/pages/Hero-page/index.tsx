@@ -19,14 +19,14 @@ export default function Hero() {
             className="space-y-6 text-center lg:text-left"
           >
             <h1 className="text-4xl md:text-5xl font-bold leading-tight text-white">
-              Abednego <br />
+              Hello I am Abednego, <br />
               <span className="text-transparent bg-clip-text bg-gradient-to-r from-white to-yellow-300">
-                Full-Stack Developer
+                Welcome to My Portofolio
               </span>
             </h1>
             
             <p className="text-lg text-white max-w-xl mx-auto lg:mx-0">
-              Membangun aplikasi web modern dengan performa optimal
+              Manusia biasa yang berusaha berdampak bagi manusia lain.
             </p>
 
             <div className="flex flex-col sm:flex-row gap-4 justify-center lg:justify-start">
@@ -55,7 +55,7 @@ export default function Hero() {
             className="relative aspect-square rounded-3xl overflow-hidden shadow-xl border-8 border-white"
           >
             <Image
-              src="/windah.png"
+              src="/ABED.jpg"
               alt="Yosua Abednego"
               fill
               className="object-cover"

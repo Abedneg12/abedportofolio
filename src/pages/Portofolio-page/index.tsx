@@ -16,7 +16,17 @@ const projects = [
     demo: "https://abedportofolio.vercel.app/",
     code: "https://github.com/Abedneg12/abedportofolio.git"
   },
-  // Tambahkan proyek lainnya dengan format yang sama
+  {
+    title: "Rekomitra Droppoint Project Development",
+    technologies: ["FIgma", "PRD"],
+    image: "/Rkm.png",
+    situation: "Saya mengikuti Program magang Merdeka 2022, dan mengerjakan project dummy untuk on-going project bernama Rekomitra Droppoin",
+    task: "Melakukan developing produk digital dummy untuk Rekomitra droppoint",
+    action: "Mempelajari aplikasi figma, mempelajari dan melakukan riset terhadap produk yang sudah berjalan (rekomitra droppoint), dan juga mempelajari Product Management Tools",
+    result: "Menghasilkan PRD produk digital, Dokumen pendukung (syarat dan ketentuan untuk kemitraan), dan juga Wireframe UI/UX aplikasi rekomitra droppoint",
+    demo: "https://www.figma.com/design/bL6l4G8r8TrCfHB7VwIbR6/REKOMITRA-DROPPOINT?node-id=0-1&t=70RVUGPuCwb7doFU-1",
+    code: "https://drive.google.com/drive/folders/1P8_Wmeuyd_UKPD-88tzrchEFgN-AeJRi?usp=sharing"
+  } // Tambahkan proyek lainnya dengan format yang sama
 ];
 
 export default function Portofolio() {
@@ -131,7 +141,7 @@ export default function Portofolio() {
                       target="_blank"
                       rel="noopener noreferrer"
                     >
-                      Kode Sumber
+                      Sumber
                     </a>
                   </div>
                 </div>

@@ -11,7 +11,8 @@ const skillsData = {
     'Node.js','PostgreSQL', 'REST API'
   ],
   tools: [
-    'Git', 'Docker', 'Postman', 'Figma'
+    'Git', 'Docker', 'Postman', 'Figma', 'Adobe Premiere Pro',
+    'Solidworks', 'AI Prompt'
   ]
 };
 
@@ -81,7 +82,7 @@ export default function Skill() {
               transition={{ delay: 0.4 }}
               className="bg-white p-6 rounded-xl shadow-lg"
             >
-              <h3 className="text-xl font-semibold mb-4 text-pink-600">Tools</h3>
+              <h3 className="text-xl font-semibold mb-4 text-pink-600">Universal Tools</h3>
               <div className="flex flex-wrap gap-2">
                 {skillsData.tools.map((skill, index) => (
                   <motion.span
