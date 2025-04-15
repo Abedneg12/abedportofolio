@@ -22,7 +22,7 @@ export default function RootLayout({
     <html lang="en" className="scroll-smooth">
       <body className={inter.className}>
         <Iridescence
-          color={[0.3, 0.2, 0.5]}    // Warna default (R=1,G=1,B=1) => putih
+          color={[1, 0.1, 0.2]}    // Warna default (R=1,G=1,B=1) => putih
           speed={1.0}          // Kecepatan animasi
           amplitude={0.1}        // Besar efek "goyang" mouse
           mouseReact={true}
