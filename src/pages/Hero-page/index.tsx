@@ -19,9 +19,9 @@ export default function Hero() {
             className="space-y-6 text-center lg:text-left"
           >
             <h1 className="text-4xl md:text-5xl font-bold leading-tight text-white">
-              Hello I am Abednego, <br />
+              Ciao, Abednego here <br />
               <span className="text-transparent bg-clip-text bg-gradient-to-r from-white to-yellow-300">
-                Welcome to My Portofolio
+                This is My Portofolio
               </span>
             </h1>
             
@@ -55,7 +55,7 @@ export default function Hero() {
             className="relative aspect-square rounded-3xl overflow-hidden shadow-xl border-8 border-white"
           >
             <Image
-              src="/ABED.jpg"
+              src="/woman.webp"
               alt="Yosua Abednego"
               fill
               className="object-cover"
