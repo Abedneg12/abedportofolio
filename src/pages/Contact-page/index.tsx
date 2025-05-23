@@ -87,7 +87,7 @@ export default function Contact() {
                     rel="noopener"
                     className="text-gray-400 hover:text-white"
                   >
-                    github.com/Abedneg21
+                    github.com/Abedneg12
                   </a>
                 </div>
               </div>
