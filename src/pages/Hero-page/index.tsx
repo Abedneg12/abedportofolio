@@ -55,7 +55,7 @@ export default function Hero() {
             className="relative aspect-square rounded-3xl overflow-hidden shadow-xl border-8 border-white"
           >
             <Image
-              src="/woman.webp"
+              src="/ABED.jpg"
               alt="Yosua Abednego"
               fill
               className="object-cover"

@@ -82,7 +82,7 @@ export default function Contact() {
                 <div>
                   <p className="font-medium text-white">GitHub</p>
                   <a 
-                    href="https://github.com/username" 
+                    href="https://github.com/Abedneg21" 
                     target="_blank"
                     rel="noopener"
                     className="text-gray-400 hover:text-white"
@@ -97,7 +97,7 @@ export default function Contact() {
                 <div>
                   <p className="font-medium text-white">LinkedIn</p>
                   <a
-                    href="https://linkedin.com/in/username"
+                    href="https://linkedin.com/in/yosua-abednego/"
                     target="_blank"
                     rel="noopener"
                     className="text-gray-400 hover:text-white"
