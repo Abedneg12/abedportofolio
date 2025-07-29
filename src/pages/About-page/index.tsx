@@ -49,10 +49,12 @@ export default function About() {
               Tentang <span className="text-blue-600">Saya</span>
             </h2>
             <p className="text-gray-600 leading-relaxed">
-              Saya Yosua Abednego, Lulusan mahasiswa aktif Universitas Katolik Parahyangan Jurusan Teknik Industri. 
-              Memiliki ketertarikan di bidang data, Konfigurasi AI, product management dan juga Web Development. 
-              Sangat menyukai tantangan dan hal baru serta selalu berusaha berdampak bagi sesama. 
-              Selalu memotivasi diri dan berusaha menjadi lebih baik hari demi hari.
+              Saya Yosua Abednego, Lulusan mahasiswa aktif Universitas Katolik Parahyangan 
+              Jurusan Teknik Industri. Memiliki ketertarikan di bidang data, Konfigurasi AI, product 
+              management dan juga Web Development. Sangat menyukai tantangan dan hal baru 
+              serta selalu berusaha berdampak bagi sesama. Saya terampil dan memiliki 
+              pemikiran yang kreatif. Selalu memotivasi diri dan berusaha menjadi lebih baik hari 
+              demi hari. 
             </p>
             <div className="mt-8">
               <h3 className="text-xl font-semibold text-gray-800 mb-4">
@@ -106,7 +108,7 @@ export default function About() {
                 </div>
                 <div>
                   <h4 className="font-medium text-gray-800">Fokus pada Performa</h4>
-                  <p className="text-gray-600 text-sm">Optimasi kecepatan dan efisiensi</p>
+                  <p className="text-gray-600 text-sm">Optimasi dan efisiensi</p>
                 </div>
               </div>
               <div className="flex items-center gap-4">
