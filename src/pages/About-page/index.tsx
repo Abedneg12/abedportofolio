@@ -10,14 +10,8 @@ type EducationItem = {
 };
 
 const skills: string[] = [
-  'JavaScript',
-  'TypeScript',
-  'React.js',
-  'Next.js',
-  'Tailwind CSS',
-  'Git & GitHub',
   'Solidworks',
-  'AI Prompting (GPT & Deepseek)',
+  'AI Prompting LLM',
   'Python',
   'Data Analysis',
   'Product Management Tools',
@@ -31,11 +25,6 @@ const education: EducationItem[] = [
     institution: 'Universitas Katolik Parahyangan',
     degree: 'Teknik Industri',
     period: '2019-2024'
-  },
-  {
-    institution: 'Bootcamp Web Development (Ongoing)',
-    degree: 'Full-Stack Developer',
-    period: '2024'
   },
   {
     institution: 'Myskill',
@@ -133,7 +122,7 @@ export default function About() {
                 </div>
                 <div>
                   <h4 className="font-medium text-gray-800">Hasil Berkualitas</h4>
-                  <p className="text-gray-600 text-sm">Clean code & best practices</p>
+                  <p className="text-gray-600 text-sm">Pengutamaan Pada Pengerjaan</p>
                 </div>
               </div>
             </div>
