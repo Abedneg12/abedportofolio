@@ -37,8 +37,18 @@ const projects = [
     result: "Menghasilkan video aftermovie yang berkonsep Retro dan sangat memorable",
     demo: "https://www.youtube.com/watch?v=U3CqQsRNP9g",
     code: "https://drive.google.com/drive/folders/1P8_Wmeuyd_UKPD-88tzrchEFgN-AeJRi?usp=sharing"
+  }, 
+  {
+    title: "Website Freshmarket with irga & akbar",
+    technologies: ["Next.Js", "Typescript", "React-Hook", "Tailwind CSS"],
+    image: "/image.png",
+    situation: "Project harus dikerjakan oleh 3 orang, dimana membuat online groceries web yang bernama freshmarket.",
+    task: "Membuat feature 3 dari freshmarket.",
+    action: "Mengerjakan feature 3 untuk fitur cart, checkout, store admin dashboard dan pembayaran menggunakan manual ataupun midtrans.",
+    result: "Menghasilkan website freshmarket dimana website ini merupakan online groceries web .",
+    demo: "https://freshmarketfrontend.vercel.app/",
+    code: "https://github.com/Abedneg12/freshmarketfrontend"
   }
-   // Tambahkan proyek lainnya dengan format yang sama
 ];
 
 export default function Portofolio() {
