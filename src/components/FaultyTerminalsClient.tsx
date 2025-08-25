@@ -3,7 +3,7 @@
 import dynamic from "next/dynamic";
 
 const FaultyTerminal = dynamic(
-  () => import("@/components/FaultyTerminal"), 
+  () => import("@/components/FaultyTerminals"), 
   { ssr: false }
 );
 
