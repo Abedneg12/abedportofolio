@@ -5,7 +5,7 @@ import { Inter } from "next/font/google";
 import "./globals.css";
 import Navbar from "@/components/Navbar";
 import type { ReactNode } from "react";
-import FaultyTerminalClient from "@/components/faultyterminalclients";
+import FaultyTerminalClient from "@/components/FaultyTerminalsClient";
 
 const inter = Inter({ subsets: ["latin"] });
 
