@@ -1,11 +1,25 @@
+
 'use client';
 
 import { useState } from 'react';
-import { motion } from 'framer-motion';
+import { motion, AnimatePresence } from 'framer-motion';
 import Image from 'next/image';
 
-const projects = [
-  {
+// Menambahkan tipe data untuk proyek agar lebih aman
+type Project = {
+  title: string;
+  technologies: string[];
+  image: string;
+  situation: string;
+  task: string;
+  action: string;
+  result: string;
+  demo: string;
+  code: string;
+};
+
+const projects: Project[] = [
+    {
     title: "Website Portofolio",
     technologies: ["Next.Js", "Typescript", "React-Hook", "Tailwind CSS"],
     image: "/test.png",
@@ -52,26 +66,40 @@ const projects = [
 ];
 
 export default function Portofolio() {
-  const [selectedProject, setSelectedProject] = useState<number | null>(null);
+  const [selectedProject, setSelectedProject] = useState<Project | null>(null);
 
   return (
-    <section id="portfolio" className="py-20 bg-gray-50">
+    <section id="portfolio" className="py-20 bg-slate-900 overflow-hidden">
       <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
-        <h2 className="text-3xl font-bold text-center mb-12">
-          <span className='text-black'>Portofolio</span> <span className="text-blue-700">Proyek</span>
-        </h2>
+        <motion.h2
+          initial={{ y: -50, opacity: 0 }}
+          whileInView={{ y: 0, opacity: 1 }}
+          viewport={{ once: true }}
+          transition={{ type: 'spring', stiffness: 100 }}
+          className="text-5xl md:text-6xl font-extrabold text-center mb-16"
+        >
+          <span className='text-white'>Portofolio</span>
+          <span
+            className="text-orange-500"
+            style={{
+              textShadow: "3px 3px 0px #000, -3px 3px 0px #000, 3px -3px 0px #000, -3px -3px 0px #000"
+            }}
+          > Proyek
+          </span>
+        </motion.h2>
 
-        <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+        <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-10">
           {projects.map((project, index) => (
             <motion.div
               key={index}
-              initial={{ y: 50, opacity: 0 }}
-              whileInView={{ y: 0, opacity: 1 }}
+              initial={{ y: 50, opacity: 0, scale: 0.9 }}
+              whileInView={{ y: 0, opacity: 1, scale: 1 }}
+              whileHover={{ y: -8, transition: { type: 'spring', stiffness: 300 } }}
               viewport={{ once: true }}
-              className="bg-white rounded-xl shadow-lg overflow-hidden hover:shadow-xl transition-shadow cursor-pointer"
-              onClick={() => setSelectedProject(index)}
+              className="bg-white rounded-xl border-4 border-slate-900 shadow-[8px_8px_0_0_#0EA5E9] cursor-pointer flex flex-col"
+              onClick={() => setSelectedProject(project)}
             >
-              <div className="relative h-48">
+              <div className="relative h-48 border-b-4 border-slate-900 overflow-hidden">
                 <Image
                   src={project.image}
                   alt={project.title}
@@ -81,13 +109,13 @@ export default function Portofolio() {
                 />
               </div>
               
-              <div className="p-6">
-                <h3 className="text-xl font-bold mb-2 text-black">{project.title}</h3>
-                <div className="flex flex-wrap gap-2 mb-4">
-                  {project.technologies.map((tech, i) => (
+              <div className="p-6 flex flex-col flex-grow">
+                <h3 className="text-xl font-extrabold mb-3 text-slate-800 flex-grow">{project.title}</h3>
+                <div className="flex flex-wrap gap-2">
+                  {project.technologies.slice(0, 3).map((tech) => (
                     <span 
-                      key={i}
-                      className="px-2 py-1 bg-blue-100 text-blue-600 rounded-full text-sm"
+                      key={tech}
+                      className="px-3 py-1 bg-yellow-400 text-slate-900 rounded-full text-sm font-semibold border-2 border-slate-900"
                     >
                       {tech}
                     </span>
@@ -97,81 +125,66 @@ export default function Portofolio() {
             </motion.div>
           ))}
         </div>
+      </div>
 
-        {/* Modal Detail */}
-        {selectedProject !== null && (
-          <div className="fixed inset-0 bg-black/50 flex items-center justify-center p-4 z-50">
+      {/* Modal Detail */}
+      <AnimatePresence>
+        {selectedProject && (
+          <div className="fixed inset-0 bg-black/70 flex items-center justify-center p-4 z-50">
             <motion.div
-              initial={{ scale: 0.9, opacity: 0 }}
+              initial={{ scale: 0.8, opacity: 0 }}
               animate={{ scale: 1, opacity: 1 }}
-              className="bg-white rounded-xl max-w-2xl w-full max-h-[90vh] overflow-y-auto"
+              exit={{ scale: 0.8, opacity: 0 }}
+              transition={{ type: 'spring', stiffness: 300, damping: 25 }}
+              className="bg-white rounded-xl border-4 border-slate-900 shadow-[10px_10px_0_0_#FDE047] max-w-2xl w-full max-h-[90vh] flex flex-col"
             >
-              <div className="p-6 space-y-6">
-                <div className="flex justify-between items-start">
-                  <h3 className="text-2xl font-bold text-black">
-                    {projects[selectedProject].title}
-                  </h3>
-                  <button 
-                    onClick={() => setSelectedProject(null)}
-                    className="text-gray-500 hover:text-gray-700"
-                  >
-                    ✕
-                  </button>
-                </div>
+              <div className="p-6 border-b-4 border-slate-900 flex justify-between items-center">
+                <h3 className="text-2xl font-extrabold text-slate-800">
+                  {selectedProject.title}
+                </h3>
+                <button 
+                  onClick={() => setSelectedProject(null)}
+                  className="text-2xl font-bold text-slate-800 hover:text-orange-500 transition-colors"
+                >
+                  ✕
+                </button>
+              </div>
 
-                <div className="grid gap-6">
-                  <div>
-                    <h4 className="font-semibold mb-2 text-blue-600">SITUASI</h4>
-                    <p className="text-gray-600">
-                      {projects[selectedProject].situation}
+              <div className="p-6 space-y-4 overflow-y-auto">
+                {['situation', 'task', 'action', 'result'].map(section => (
+                  <div key={section}>
+                    <h4 className="font-extrabold text-lg mb-1 text-orange-500 tracking-widest">
+                      {section.toUpperCase()}
+                    </h4>
+                    <p className="text-slate-600 bg-slate-100 p-3 rounded-md border-2 border-slate-200">
+                      {selectedProject[section as keyof Project]}
                     </p>
                   </div>
-
-                  <div>
-                    <h4 className="font-semibold mb-2 text-blue-600">TUGAS</h4>
-                    <p className="text-gray-600">
-                      {projects[selectedProject].task}
-                    </p>
-                  </div>
-
-                  <div>
-                    <h4 className="font-semibold mb-2 text-blue-600">AKSI</h4>
-                    <p className="text-gray-600">
-                      {projects[selectedProject].action}
-                    </p>
-                  </div>
-
-                  <div>
-                    <h4 className="font-semibold mb-2 text-blue-600">HASIL</h4>
-                    <p className="text-gray-600">
-                      {projects[selectedProject].result}
-                    </p>
-                  </div>
-
-                  <div className="flex gap-4 mt-6">
-                    <a
-                      href={projects[selectedProject].demo}
-                      className="flex-1 text-center bg-blue-600 text-white px-4 py-2 rounded-lg hover:bg-blue-700 transition-colors"
-                      target="_blank"
-                      rel="noopener noreferrer"
-                    >
-                      Lihat Demo
-                    </a>
-                    <a
-                      href={projects[selectedProject].code}
-                      className="flex-1 text-center border-2 border-blue-600 text-blue-600 px-4 py-2 rounded-lg hover:bg-blue-50 transition-colors"
-                      target="_blank"
-                      rel="noopener noreferrer"
-                    >
-                      Sumber
-                    </a>
-                  </div>
-                </div>
+                ))}
+              </div>
+              
+              <div className="p-6 mt-auto border-t-4 border-slate-900 flex flex-col sm:flex-row gap-4">
+                <a
+                  href={selectedProject.demo}
+                  className="w-full text-center bg-orange-500 text-white font-bold px-6 py-3 rounded-full border-4 border-slate-900 shadow-[5px_5px_0_0_#000] hover:shadow-[7px_7px_0_0_#000] transition-all"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                >
+                  Lihat Demo
+                </a>
+                <a
+                  href={selectedProject.code}
+                  className="w-full text-center bg-white text-slate-900 font-bold px-6 py-3 rounded-full border-4 border-slate-900 shadow-[5px_5px_0_0_#000] hover:shadow-[7px_7px_0_0_#000] transition-all"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                >
+                  Sumber Kode
+                </a>
               </div>
             </motion.div>
           </div>
         )}
-      </div>
+      </AnimatePresence>
     </section>
   );
 }

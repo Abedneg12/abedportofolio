@@ -2,19 +2,20 @@
 
 import { motion } from 'framer-motion';
 
-// Define the structure for education items.
+
 type EducationItem = {
   institution: string;
   degree: string;
   period: string;
 };
 
+// Data skills dan pendidikan
 const skills: string[] = [
   'Solidworks',
   'AI Prompting LLM',
   'Python',
   'Data Analysis',
-  'Product Management Tools',
+  'Product Management',
   'Canva',
   'Adobe Premiere Pro',
   'Office Apps'
@@ -23,112 +24,138 @@ const skills: string[] = [
 const education: EducationItem[] = [
   {
     institution: 'Universitas Katolik Parahyangan',
-    degree: 'Teknik Industri',
+    degree: 'S.T. (Teknik Industri)',
     period: '2019-2024'
   },
   {
     institution: 'Myskill',
-    degree: 'Bootcamp Data Analysis Program',
+    degree: 'Bootcamp Data Analysis',
     period: '2023'
   }
 ];
 
+
+const containerVariants = {
+  hidden: { opacity: 0, y: 20 },
+  visible: {
+    opacity: 1,
+    y: 0,
+    transition: {
+      staggerChildren: 0.1,
+    },
+  },
+};
+
+const itemVariants = {
+  hidden: { opacity: 0, scale: 0.8 },
+  visible: { opacity: 1, scale: 1 },
+};
+
 export default function About() {
   return (
-    <section id="about" className="py-20 bg-gradient-to-br from-gray-50 to-blue-50">
+
+    <section id="about" className="py-20 bg-slate-900 overflow-hidden">
       <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
         <motion.div
           initial={{ opacity: 0 }}
           whileInView={{ opacity: 1 }}
-          viewport={{ once: true }}
-          className="grid lg:grid-cols-2 gap-12"
+          viewport={{ once: true, amount: 0.3 }}
+          className="grid lg:grid-cols-3 gap-10"
         >
-          {/* Kolom Kiri - Tentang Saya */}
-          <div className="space-y-6">
-            <h2 className="text-3xl font-bold text-gray-800 mb-6">
-              Tentang <span className="text-blue-600">Saya</span>
-            </h2>
-            <p className="text-gray-600 leading-relaxed">
-              Saya Yosua Abednego, Lulusan mahasiswa aktif Universitas Katolik Parahyangan 
-              Jurusan Teknik Industri. Memiliki ketertarikan di bidang data, Konfigurasi AI, product 
-              management dan juga Web Development. Sangat menyukai tantangan dan hal baru 
-              serta selalu berusaha berdampak bagi sesama. Saya terampil dan memiliki 
-              pemikiran yang kreatif. Selalu memotivasi diri dan berusaha menjadi lebih baik hari 
-              demi hari. 
-            </p>
-            <div className="mt-8">
-              <h3 className="text-xl font-semibold text-gray-800 mb-4">
+          {/* Kolom Kiri - Tentang Saya & Pendidikan */}
+          <motion.div
+            initial={{ x: -50, opacity: 0 }}
+            whileInView={{ x: 0, opacity: 1 }}
+            viewport={{ once: true }}
+            transition={{ type: 'spring', stiffness: 100 }}
+            className="lg:col-span-2 space-y-8"
+          >
+            {/* Kartu "Tentang Saya" */}
+            <div className="bg-white p-8 rounded-xl border-4 border-slate-900 shadow-[8px_8px_0_0_#F97316]">
+              <h2 className="text-3xl font-extrabold text-slate-800 mb-4">
+                Tentang Saya
+              </h2>
+              <p className="text-slate-600 leading-relaxed">
+                Saya Yosua Abednego, lulusan Teknik Industri dari Universitas Katolik Parahyangan. Memiliki ketertarikan mendalam di bidang data, konfigurasi AI, product management, dan web development. Saya menyukai tantangan, hal baru, dan selalu berusaha berdampak bagi sesama.
+              </p>
+            </div>
+
+            {/* Kartu "Pendidikan" */}
+            <div className="bg-white p-8 rounded-xl border-4 border-slate-900 shadow-[8px_8px_0_0_#FDE047]">
+              <h3 className="text-2xl font-extrabold text-slate-800 mb-6">
                 Latar Pendidikan
               </h3>
               <div className="space-y-4">
                 {education.map((item, index) => (
-                  <motion.div
-                    key={index}
-                    initial={{ x: -20 }}
-                    whileInView={{ x: 0 }}
-                    className="bg-white p-6 rounded-lg shadow-sm"
-                  >
-                    <h4 className="font-medium text-gray-800">{item.institution}</h4>
-                    <p className="text-gray-600">{item.degree}</p>
-                    <p className="text-sm text-gray-500 mt-2">{item.period}</p>
-                  </motion.div>
+                  <div key={index} className="bg-slate-100 p-4 rounded-lg border-2 border-slate-300">
+                    <h4 className="font-bold text-slate-800">{item.institution}</h4>
+                    <p className="text-slate-600">{item.degree}</p>
+                    <p className="text-sm text-slate-500 mt-1">{item.period}</p>
+                  </div>
                 ))}
               </div>
             </div>
-          </div>
-          {/* Kolom Kanan - Skill */}
-          <div className="space-y-8">
-            <h3 className="text-xl font-semibold text-gray-800 mb-4">
-              Teknologi yang Dikuasai
-            </h3>
-            <div className="flex flex-wrap gap-3">
-              {skills.map((skill, index) => (
-                <motion.span
-                  key={index}
-                  initial={{ scale: 0 }}
-                  whileInView={{ scale: 1 }}
-                  className="px-4 py-2 bg-blue-100 text-blue-600 rounded-full text-sm hover:bg-blue-200 transition-colors cursor-default"
-                >
-                  {skill}
-                </motion.span>
-              ))}
+          </motion.div>
+          
+          {/* Kolom Kanan - Skills & Nilai Tambah */}
+          <motion.div
+            initial={{ x: 50, opacity: 0 }}
+            whileInView={{ x: 0, opacity: 1 }}
+            viewport={{ once: true }}
+            transition={{ type: 'spring', stiffness: 100 }}
+            className="space-y-8"
+          >
+            {/* Kartu "Skills" */}
+            <div className="bg-white p-8 rounded-xl border-4 border-slate-900 shadow-[8px_8px_0_0_#0EA5E9]">
+              <h3 className="text-2xl font-extrabold text-slate-800 mb-6">
+                Teknologi & Skills
+              </h3>
+              <motion.div
+                variants={containerVariants}
+                initial="hidden"
+                whileInView="visible"
+                viewport={{ once: true, amount: 0.5 }}
+                className="flex flex-wrap gap-3"
+              >
+                {skills.map((skill) => (
+                  <motion.span
+                    key={skill}
+                    variants={itemVariants}
+                    className="font-semibold px-4 py-2 bg-yellow-400 text-slate-900 rounded-full border-2 border-slate-900 cursor-default"
+                  >
+                    {skill}
+                  </motion.span>
+                ))}
+              </motion.div>
             </div>
-            {/* Nilai Tambah */}
-            <div className="mt-8 space-y-4">
-              <div className="flex items-center gap-4">
-                <div className="p-3 bg-blue-100 rounded-full">
-                  <svg className="w-6 h-6 text-blue-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                    <path
-                      strokeLinecap="round"
-                      strokeLinejoin="round"
-                      strokeWidth="2"
-                      d="M13 10V3L4 14h7v7l9-11h-7z"
-                    />
-                  </svg>
+            
+             {/* Kartu "Nilai Tambah" */}
+            <div className="bg-white p-8 rounded-xl border-4 border-slate-900">
+                <h3 className="text-2xl font-extrabold text-slate-800 mb-6">
+                    Nilai Tambah
+                </h3>
+                <div className="space-y-4">
+                    <div className="flex items-center gap-4">
+                        <div className="p-3 bg-orange-500 rounded-lg border-2 border-slate-900">
+                          ⚡️
+                        </div>
+                        <div>
+                            <h4 className="font-bold text-slate-800">Fokus pada Performa</h4>
+                            <p className="text-slate-600 text-sm">Optimasi dan efisiensi</p>
+                        </div>
+                    </div>
+                    <div className="flex items-center gap-4">
+                        <div className="p-3 bg-sky-500 rounded-lg border-2 border-slate-900">
+                          🏆
+                        </div>
+                        <div>
+                            <h4 className="font-bold text-slate-800">Hasil Berkualitas</h4>
+                            <p className="text-slate-600 text-sm">Mengutamakan kualitas pengerjaan</p>
+                        </div>
+                    </div>
                 </div>
-                <div>
-                  <h4 className="font-medium text-gray-800">Fokus pada Performa</h4>
-                  <p className="text-gray-600 text-sm">Optimasi dan efisiensi</p>
-                </div>
-              </div>
-              <div className="flex items-center gap-4">
-                <div className="p-3 bg-blue-100 rounded-full">
-                  <svg className="w-6 h-6 text-blue-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                    <path
-                      strokeLinecap="round"
-                      strokeLinejoin="round"
-                      strokeWidth="2"
-                      d="M9 19v-6a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2a2 2 0 002-2zm0 0V9a2 2 0 012-2h2a2 2 0 012 2v10m-6 0a2 2 0 002 2h2a2 2 0 002-2m0 0V5a2 2 0 012-2h2a2 2 0 012 2v14a2 2 0 01-2 2h-2a2 2 0 01-2-2z"
-                    />
-                  </svg>
-                </div>
-                <div>
-                  <h4 className="font-medium text-gray-800">Hasil Berkualitas</h4>
-                  <p className="text-gray-600 text-sm">Pengutamaan Pada Pengerjaan</p>
-                </div>
-              </div>
             </div>
-          </div>
+          </motion.div>
         </motion.div>
       </div>
     </section>
